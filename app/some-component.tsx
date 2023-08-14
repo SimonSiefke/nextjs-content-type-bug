@@ -1,4 +1,4 @@
-import { someVariable } from "./someVariable";
+let someVariable: any = 2;
 
 export const SomeComponent = () => {
   someVariable.doesNotExist();
