@@ -3,7 +3,7 @@
 ## Output
 
 ```
- next build
+next build
 
 - info Creating an optimized production build
 - info Compiled successfully
