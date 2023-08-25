@@ -1,21 +1,18 @@
 const express = require("express");
 const request = require("request");
-const { exec, spawn } = require("node:child_process");
+const { spawn } = require("node:child_process");
 
 const app = express();
 
 app.use("*", function (req, res) {
-  //modify the url in any way you want
-  // console.log({ path: req.path });
-  // console.log({ req });
-  console.log({ baseUrl: req.baseUrl });
-  var newurl = `http://localhost:3000${req.baseUrl}`;
+  const newurl = `http://localhost:3000${req.baseUrl}`;
   request(newurl).pipe(res);
 });
 
 const waitForServer = async () => {
   const child = spawn(`npm`, ["start"], {});
   await new Promise((resolve) => {
+    child.stderr.pipe(process.stderr);
     child.stdout.on("data", (data) => {
       console.log(`${data}`);
       if (`${data}`.includes("ready started server")) {
