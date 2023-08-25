@@ -1,4 +1,4 @@
-# Nextjs header error bug
+# Nextjs content type bug
 
 ```sh
 git clone git@github.com:SimonSiefke/nextjs-content-type-bug.git &&
